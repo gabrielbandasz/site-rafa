@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Importância da Comunicação com Deus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500&family=Cinzel+Decorative:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --deep:    #0D1B2A;
+      --deep2:   #122030;
+      --gold:    #E8A838;
+      --gold2:   #F0C060;
+      --forest:  #1A3A2A;
+      --cream:   #F0EDE6;
+      --muted:   #A09888;
+      --white:   #FFFFFF;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--deep);
+      color: var(--cream);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: rgba(13,27,42,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(232,168,56,0.12);
+    }
+    .nav-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 32px; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem; letter-spacing: 0.12em; text-decoration: none;
+      color: var(--muted); text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 30%, rgba(26,58,42,0.55) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 80% 80%, rgba(232,168,56,0.08) 0%, transparent 60%);
+    }
+    .hero-cross {
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      width: 600px; height: 600px; opacity: 0.025;
+      z-index: 0;
+    }
+    .hero-cross::before, .hero-cross::after {
+      content: ''; position: absolute;
+      background: var(--cream);
+      border-radius: 4px;
+    }
+    .hero-cross::before { width: 24px; height: 100%; left: 50%; transform: translateX(-50%); }
+    .hero-cross::after  { width: 100%; height: 24px; top: 30%; left: 0; }
+
+    .hero-eyebrow {
+      font-size: 0.72rem; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px; position: relative; z-index: 1;
+    }
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(2.4rem, 7vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.12;
+      position: relative; z-index: 1;
+      max-width: 820px;
+    }
+    .hero-title span { color: var(--gold); }
+    .hero-sub {
+      margin-top: 28px;
+      font-size: 0.95rem; color: var(--muted);
+      max-width: 520px; position: relative; z-index: 1;
+    }
+    .hero-authors {
+      margin-top: 48px; position: relative; z-index: 1;
+      display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+    }
+    .author-chip {
+      background: rgba(232,168,56,0.1);
+      border: 1px solid rgba(232,168,56,0.25);
+      border-radius: 50px;
+      padding: 6px 18px;
+      font-size: 0.8rem; letter-spacing: 0.08em;
+      color: var(--gold2);
+    }
+    .turma-tag {
+      margin-top: 16px; position: relative; z-index: 1;
+      font-size: 0.75rem; letter-spacing: 0.2em;
+      color: var(--muted); text-transform: uppercase;
+    }
+    .scroll-hint {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 8px;
+      opacity: 0.45;
+    }
+    .scroll-hint span { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; }
+    .scroll-line {
+      width: 1px; height: 40px;
+      background: linear-gradient(to bottom, var(--gold), transparent);
+      animation: lineDown 2s ease-in-out infinite;
+    }
+    @keyframes lineDown {
+      0%,100% { transform: scaleY(0); transform-origin: top; }
+      50% { transform: scaleY(1); transform-origin: top; }
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 24px; }
+    .container { max-width: 960px; margin: 0 auto; }
+    .container-wide { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.6rem, 4vw, 2.8rem);
+      font-weight: 600; line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .section-body { color: var(--muted); max-width: 640px; font-size: 1.02rem; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      display: flex; align-items: center; gap: 16px;
+      max-width: 960px; margin: 0 auto 60px;
+      opacity: 0.25;
+    }
+    .divider::before, .divider::after {
+      content: ''; flex: 1; height: 1px; background: var(--gold);
+    }
+    .divider-icon { font-size: 1rem; color: var(--gold); }
+
+    /* ── INTRO ── */
+    #intro { background: var(--deep2); }
+    .intro-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .intro-quote {
+      border-left: 3px solid var(--gold);
+      padding: 20px 28px;
+      background: rgba(232,168,56,0.05);
+      border-radius: 0 8px 8px 0;
+      font-family: 'Cinzel', serif;
+      font-size: 1.05rem; line-height: 1.65;
+      color: var(--cream);
+      font-style: italic;
+    }
+
+    /* ── OBJETIVOS ── */
+    #objetivo {
+      background: var(--forest);
+      position: relative; overflow: hidden;
+    }
+    #objetivo::before {
+      content: ''; position: absolute; top: -80px; right: -80px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,168,56,0.06) 0%, transparent 70%);
+    }
+    .objetivo-card {
+      background: rgba(13,27,42,0.5);
+      border: 1px solid rgba(232,168,56,0.15);
+      border-radius: 16px; padding: 36px 40px;
+      max-width: 700px;
+    }
+    .objetivo-card p { font-size: 1.08rem; color: var(--cream); line-height: 1.8; }
+
+    /* ── COMO NÓS COMUNICAMOS ── */
+    #como-nos { background: var(--deep); }
+    .cards-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      margin-top: 48px;
+    }
+    .card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(232,168,56,0.12);
+      border-radius: 16px; padding: 32px 28px;
+      transition: border-color 0.3s, transform 0.3s;
+    }
+    .card:hover {
+      border-color: rgba(232,168,56,0.4);
+      transform: translateY(-4px);
+    }
+    .card-icon {
+      width: 46px; height: 46px; border-radius: 12px;
+      background: rgba(232,168,56,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; margin-bottom: 20px;
+    }
+    .card h3 {
+      font-family: 'Cinzel', serif; font-size: 1rem;
+      color: var(--gold); margin-bottom: 12px;
+    }
+    .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+    /* ── COMO DEUS FALA ── */
+    #como-deus { background: var(--deep2); }
+    .fala-list { display: flex; flex-direction: column; gap: 28px; margin-top: 48px; }
+    .fala-item {
+      display: flex; gap: 28px; align-items: flex-start;
+      padding: 28px 32px;
+      background: rgba(255,255,255,0.025);
+      border-radius: 16px;
+      border-left: 3px solid var(--gold);
+      transition: background 0.3s;
+    }
+    .fala-item:hover { background: rgba(255,255,255,0.045); }
+    .fala-number {
+      font-family: 'Cinzel', serif; font-size: 1.8rem;
+      color: rgba(232,168,56,0.2); font-weight: 700;
+      min-width: 40px; line-height: 1;
+    }
+    .fala-content h3 {
+      font-family: 'Cinzel', serif; font-size: 1.05rem;
+      color: var(--cream); margin-bottom: 8px;
+    }
+    .fala-content p { font-size: 0.92rem; color: var(--muted); }
+
+    /* ── CURIOSIDADES / RESUMO ── */
+    #resumo {
+      background: var(--deep);
+      text-align: center;
+    }
+    .resumo-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+      line-height: 1.8;
+      color: var(--cream);
+      max-width: 720px; margin: 0 auto 48px;
+    }
+    .refs-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+      max-width: 720px; margin: 0 auto;
+      text-align: left;
+    }
+    .ref-item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 10px; padding: 18px 22px;
+      font-size: 0.85rem; color: var(--muted);
+    }
+    .ref-item strong { color: var(--cream); display: block; margin-bottom: 4px; }
+
+    /* ── VERSÍCULO FINAL ── */
+    #versiculo {
+      background: var(--forest);
+      text-align: center; padding: 120px 24px;
+      position: relative; overflow: hidden;
+    }
+    .vers-ornament {
+      display: flex; align-items: center; gap: 20px;
+      justify-content: center; margin-bottom: 40px;
+    }
+    .vers-ornament::before, .vers-ornament::after {
+      content: ''; width: 80px; height: 1px; background: var(--gold); opacity: 0.4;
+    }
+    .vers-diamond { width: 8px; height: 8px; background: var(--gold); transform: rotate(45deg); }
+    .vers-text {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      color: var(--cream); line-height: 1.7;
+      max-width: 680px; margin: 0 auto 20px;
+      font-style: italic;
+    }
+    .vers-ref {
+      font-size: 0.82rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: rgba(0,0,0,0.4);
+      border-top: 1px solid rgba(232,168,56,0.1);
+      text-align: center; padding: 28px;
+      font-size: 0.78rem; letter-spacing: 0.1em;
+      color: var(--muted);
+    }
+
+    /* ── FADE-IN ON SCROLL ── */
+    .reveal {
+      opacity: 0; transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .intro-grid { grid-template-columns: 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .refs-grid { grid-template-columns: 1fr; }
+      .fala-item { flex-direction: column; gap: 8px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .scroll-line { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">Comunicação com Deus</div>
+    <ul class="nav-links">
+      <li><a href="#intro">Introdução</a></li>
+      <li><a href="#como-nos">Como Oramos</a></li>
+      <li><a href="#como-deus">Como Deus Fala</a></li>
+      <li><a href="#resumo">Referências</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-cross"></div>
+    <p class="hero-eyebrow">Trabalho Escolar · Turma 71</p>
+    <h1 class="hero-title">A Importância da<br><span>Comunicação</span><br>com Deus</h1>
+    <p class="hero-sub">Uma investigação sobre como a fé e a espiritualidade moldam a vida humana — da perspectiva bíblica e científica.</p>
+    <div class="hero-authors">
+      <span class="author-chip">Rafael Prade</span>
+      <span class="author-chip">Matheus da Rosa</span>
+      <span class="author-chip">Samuel Purcino</span>
+    </div>
+    <p class="turma-tag">Turma 71</p>
+    <div class="scroll-hint">
+      <span>Rolar</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section id="intro">
+    <div class="container">
+      <div class="intro-grid reveal">
+        <div>
+          <p class="section-label">Introdução</p>
+          <h2 class="section-title">O que é se comunicar com Deus?</h2>
+          <p class="section-body">
+            A comunicação é uma das necessidades mais fundamentais do ser humano. Expressamos pensamentos por meio da fala, escrita, gestos e tecnologia. Muitas pessoas também acreditam poder se comunicar com Deus através da oração, leitura da Bíblia, louvor e momentos de reflexão interior.
+          </p>
+          <p class="section-body" style="margin-top:16px;">
+            Este trabalho busca compreender como essa comunicação influencia a vida humana — tanto sob a perspectiva bíblica quanto científica.
+          </p>
+        </div>
+        <div>
+          <div class="intro-quote">
+            "A comunicação com Deus é o elemento que estrutura a história da salvação, transformando informações doutrinárias em uma experiência relacional e transformadora."
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OBJETIVO -->
+  <section id="objetivo">
+    <div class="container reveal">
+      <p class="section-label">Propósito do Trabalho</p>
+      <h2 class="section-title">Objetivo</h2>
+      <div class="objetivo-card">
+        <p>
+          Investigar como a <strong style="color:var(--gold2)">oração</strong>, a <strong style="color:var(--gold2)">leitura bíblica</strong>, a <strong style="color:var(--gold2)">gratidão</strong> e outras práticas espirituais podem impactar o comportamento humano, a ansiedade, o bem-estar emocional e a recuperação de vícios — unindo teologia e ciência em um mesmo olhar.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO NÓS COMUNICAMOS -->
+  <section id="como-nos">
+    <div class="container-wide">
+      <div class="reveal" style="max-width:960px;margin:0 auto 0;">
+        <p class="section-label">De Nós para Deus</p>
+        <h2 class="section-title">Como nos comunicamos com Deus</h2>
+      </div>
+      <div class="cards-grid reveal">
+        <div class="card">
+          <div class="card-icon">📖</div>
+          <h3>Leitura da Bíblia</h3>
+          <p>Muitos cristãos acreditam que Deus fala através das Escrituras. Ao ler e refletir, buscamos compreender Seus ensinamentos e direção para a vida.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎵</div>
+          <h3>Adoração e Louvor</h3>
+          <p>Por meio de músicas, cânticos e expressões de adoração, a pessoa se conecta com Deus e expressa amor, gratidão e reverência.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌿</div>
+          <h3>Meditação na Palavra</h3>
+          <p>Não é apenas ler, mas refletir profundamente em um versículo ou passagem, procurando aplicar aquilo à própria vida no dia a dia.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🙏</div>
+          <h3>Jejum</h3>
+          <p>Prática de abrir mão de algo — geralmente alimento por um período — para dedicar mais tempo à oração e à busca de Deus.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤫</div>
+          <h3>Silêncio e Escuta</h3>
+          <p>Após orar, reservar momentos de silêncio para refletir e ouvir, discernindo pensamentos e convicções alinhados com os princípios bíblicos.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🤝</div>
+          <h3>Comunhão com Outros</h3>
+          <p>Deus também pode falar através de conselhos, pregações, estudos bíblicos e conversas com irmãos maduros na fé.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMO DEUS FALA -->
+  <section id="como-deus">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">De Deus para Nós</p>
+        <h2 class="section-title">Como Deus fala conosco</h2>
+      </div>
+      <div class="fala-list reveal">
+        <div class="fala-item">
+          <span class="fala-number">01</span>
+          <div class="fala-content">
+            <h3>Pela Bíblia</h3>
+            <p>Ao ler as Escrituras, um versículo ou passagem pode trazer direção, correção, conforto ou sabedoria para uma situação específica da nossa vida.</p>
+          </div>
+        </div>
+        <div class="fala-item">
+          <span class="fala-number">02</span>
+          <div class="fala-content">
+            <h3>Em Oração</h3>
+            <p>Enquanto oram, alguns recebem clareza, entendimento ou uma forte impressão sobre o que devem fazer — uma resposta que vai além das próprias reflexões.</p>
+          </div>
+        </div>
+        <div class="fala-item">
+          <span class="fala-number">03</span>
+          <div class="fala-content">
+            <h3>Por Sonhos ou Visões</h3>
+            <p>Há relatos na Bíblia de Deus falando dessa forma. Embora os cristãos geralmente entendam que essas experiências devem ser examinadas com cuidado e comparadas às Escrituras.</p>
+          </div>
+        </div>
+        <div class="fala-item">
+          <span class="fala-number">04</span>
+          <div class="fala-content">
+            <h3>Máxima Expressão em Jesus</h3>
+            <p>Para a teologia, a comunicação divina encontrou em Jesus sua expressão máxima — não havendo necessidade de complementos posteriores ao que foi revelado em Cristo.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERÊNCIAS -->
+  <section id="resumo">
+    <div class="container">
+      <div class="reveal">
+        <p class="section-label">Fontes Acadêmicas</p>
+        <h2 class="section-title">Referências Bibliográficas</h2>
+        <p class="section-body" style="margin: 0 auto 48px; text-align:center;">
+          Pesquisa fundamentada em obras teológicas reconhecidas, levantadas via Google Acadêmico.
+        </p>
+      </div>
+      <div class="refs-grid reveal">
+        <div class="ref-item">
+          <strong>Felicísimo Martínez Díez</strong>
+          "Teologia da Comunicação" — obra base do estudo (1997)
+        </div>
+        <div class="ref-item">
+          <strong>Benjamin B. Warfield (1851–1921)</strong>
+          Citado no modo de revelação concursiva
+        </div>
+        <div class="ref-item">
+          <strong>Millard J. Erickson</strong>
+          Obra fundamental citada (1997)
+        </div>
+        <div class="ref-item">
+          <strong>Walther Eichrodt</strong>
+          Obra fundamental citada (2004)
+        </div>
+        <div class="ref-item">
+          <strong>Geerhardus Vos</strong>
+          Obra fundamental citada (2010)
+        </div>
+        <div class="ref-item">
+          <strong>Heber Campos</strong>
+          Obra fundamental citada (2017)
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VERSÍCULO FINAL -->
+  <section id="versiculo">
+    <div class="vers-ornament reveal">
+      <div class="vers-diamond"></div>
+    </div>
+    <p class="vers-text reveal">
+      "Cada um administre aos outros o dom como o recebeu, como bons despenseiros da multiforme graça de Deus."
+    </p>
+    <p class="vers-ref reveal">1 Pedro 4:10</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Rafael Prade · Matheus da Rosa · Samuel Purcino &nbsp;·&nbsp; Turma 71</p>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav active link highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 120) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--gold)' : '';
+      });
+    });
+  </script>
+</body>
+</html>
